@@ -17,6 +17,13 @@
 // THEN I am presented with the last searched city forecast
 console.log("hello");
 var citySearch = JSON.stringify($(".searchBtn").innerHTML);
+var inputHistory = []
+//onclick function?
+for (i = 0; i < inputHistory.length; i++) {
+    inputHistory.push(citySearch[i]);
+    console.log(citySearch, citySearch.length);
+    localStorage.setItem("data", citySearch);
+};
 
 //primary api key: 096ef74ec84603cb5d797eef6a3f0327
 //backup api key: 51eff38dc476b28387cdbdbd9705ea5b
@@ -26,20 +33,26 @@ var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=seattle&appid=
 
 var currentDate = moment().format("dddd, MMMM Do YYYY");
 console.log(currentDate);
+var mainCityName = $(".mainCityName");
+var temp = $(".temp");
+var humidity = $(".humidity");
+var windspeed = $(".windSpeed");
 
 $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function (response) {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=51eff38dc476b28387cdbdbd9705ea5b&units=imperial";
-    console.log(queryURL);
-    console.log(response);
-    $(".searchBtn").on("click", function () {
-$("div.mainCityName").html("<h3>" + response.name + "</h3>");
-$("div.currentDate").append(currentDate);
-$("div.temp").text(`temperature: ${response.main.temp} degrees F`);
-$("div.humidity").text(`Humidity: ${response.main.humidity}%`);
-$("div.windSpeed").text(`Wind Speed: ${response.wind.speed} mph ${response.wind.deg} degrees`);
+    // $(".searchBtn").on("click", function () {
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=51eff38dc476b28387cdbdbd9705ea5b&units=imperial";
+        console.log(queryURL);
+        console.log(response);
+        $(".searchBtn").on("click", function() {
+            $(".mainCityName").html("<h3>" + response.name + "</h3>");
+            $(".currentDate").append(currentDate);
+            $(".temp").text(`temperature: ${response.main.temp} degrees F`);
+            $(".humidity").text(`Humidity: ${response.main.humidity}%`);
+            $(".windSpeed").text(`Wind Speed: ${response.wind.speed} mph ${response.wind.deg} degrees`);
 
+        });
     });
-});
+// });
