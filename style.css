@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+ }
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.rightSide {
+    background-color: lightgoldenrodyellow;
+}
+.leftSide {
+    background-color: rgb(207, 220, 236);
+}

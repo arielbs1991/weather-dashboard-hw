@@ -87,7 +87,6 @@ $(".searchBtn").on("click", function (event) {
                         <img src = "http://openweathermap.org/img/wn/${forecast.icon}@2x.png"></img>
                         <p class="card-text cardTemp">Temp: ${forecast.temp}° F</p>
                         <p class="card-text cardHumidity">Humidity: ${forecast.humidity}%</p>
-
                     </div>
                 </div>`;
 
