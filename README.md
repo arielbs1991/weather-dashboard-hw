@@ -18,3 +18,7 @@ THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 
+![weather-site-screenshot](readme-images\weather-dashboard-screenshot.png)
+
+https://github.com/arielbs1991/weather-dashboard-hw
+https://arielbs1991.github.io/weather-dashboard-hw/index.html
